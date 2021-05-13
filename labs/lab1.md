@@ -1,15 +1,12 @@
-# Lab 1.
+# Lab 1. Extract data and load it into a table in Dedicated SQL
 
-Naming 'hyssh'
-
-Create ne pipeline
-
-name the pipeline with your mail alias 
-
+Download data URL
 ```
-hyssh_download_airlineDelay
+https://github.com/xlegend1024/azlab-flightdelay-02/raw/master/airline_delay_causes_2003_2021.zip
 ```
 
-search dataset ```http```
+Dataflow Derive Transformation expression
+```
+iif(locate(':', airport_name) > 1 , left(airport_name, locate(':', airport_name) -1), airport_name)
 
-Create Folder in Integrate
+```
